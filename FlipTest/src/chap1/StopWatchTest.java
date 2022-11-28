@@ -1,6 +1,29 @@
 package chap1;
 
+import java.util.Scanner;
+
 public class StopWatchTest {
+	 public static void main(String[] args) {
+		 Thread thread1 = Thread.currentThread();
+		 Thread thread2 = new Thread(() -> {
+		     try {
+		         for (int seconds = 3; seconds > 0; seconds--) {
+//		             System.out.println(seconds+" second"+(seconds == 1 ? "s" : "")+" left");
+		             System.out.print("\b"+seconds);
+		             Thread.sleep(1000);
+		         }
+		         System.out.println("Time's up!");
+		         thread1.stop();
+		     }catch(InterruptedException weCanIgnoreThisException){}
+		 });
+		 System.out.println("1. What is 1+1?");
+		 System.out.println("a. 2\tb. Cannot Be.\tc. 3\td. All of the above.");
+		 Scanner scan = new Scanner(System.in);
+		 thread2.start();
+		 String answer = scan.next();
+		 thread2.stop();
+		 
+	 }
 
 }
 
