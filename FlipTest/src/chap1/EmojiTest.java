@@ -8,9 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class EmojiTest {
 
 	public static void main(String[] args) throws Exception {
-//		Charset utf8 = Charset.forName("UTF-8");
-//        Charset def = Charset.defaultCharset();
-//	        String charToPrint = "\u0905";]
+
         
       //hand, watermelon, arrow, love letter
         String uchar[] = {"\uD83D\uDC48 ","12 ", "\uD83C\uDF49","\u2934","\u2B50","\uD83D\uDC8C","😀"}; 
@@ -21,11 +19,17 @@ public class EmojiTest {
 		for (String c: uchar) {
 			out.print(c);
 		}
-	    for (String c: uchar) {
-	    	System.out.print(c);
-	    }
-        
-        
+		System.out.println();
+
+		for (int cnt =0;  cnt<uchar.length; cnt++) {
+			for (int i=0; i<4; i++) {
+	            for (int j=0; j<4; j++) {
+	                out.print(uchar[cnt]);
+	            }
+			}
+			System.out.println();
+			Thread.sleep(800);
+		}
         
 	}
 }
